@@ -480,7 +480,7 @@ private[sql] object ParquetRelation extends Logging {
       inputFiles: Array[FileStatus],
       parquetBlockSize: Long)(job: Job): Unit = {
     // We side the input paths at the driver side.
-    logInfo(s"Reading Parquet file(s) from ${inputFiles.map(_.getPath).mkString(", ")}")
+    logDebug(s"Reading Parquet file(s) from ${inputFiles.map(_.getPath).mkString(", ")}")
     if (inputFiles.nonEmpty) {
       FileInputFormat.setInputPaths(job, inputFiles.map(_.getPath): _*)
     }
