@@ -589,7 +589,7 @@ class ParquetFilters(
         }
       case sources.Not(pred) =>
         val resultOptional = convertibleFiltersHelper(pred, canPartialPushDown = false)
-        resultOptional.map(sources.Not)
+        resultOptional.map(sources.Not(_))
 
       case other =>
         if (createFilter(other).isDefined) {
